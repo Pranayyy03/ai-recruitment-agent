@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+*.log
+.env
+*.db
+email_credentials.txt
