@@ -101,7 +101,7 @@ uploaded_files = st.file_uploader("Upload multiple resumes", type=["pdf", "docx"
 st.markdown("### 📝 Paste Job Description")
 jd_text = st.text_area("Enter the job description here")
 
-email = st.text_input("📬 HR Email Address (optional – send report to HR)")
+email = st.text_input("📬 HR Email Address (optional – send report to HR)").strip()
 
 # Helper to extract resume text
 def extract_text(file):
