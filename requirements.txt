@@ -1,0 +1,4 @@
+openai
+pyautogen
+pdfplumber
+python-dotenv
