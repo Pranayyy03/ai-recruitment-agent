@@ -100,7 +100,6 @@ uploaded_files = st.file_uploader("Upload multiple resumes", type=["pdf", "docx"
 
 st.markdown("### 📝 Paste Job Description")
 jd_text = st.text_area("Enter the job description here")
-
 email = st.text_input("📬 HR Email Address (optional – send report to HR)").strip()
 
 # Helper to extract resume text
@@ -133,7 +132,7 @@ if uploaded_files and jd_text:
     if email:
         if st.button("📧 Send Combined Report to HR"):
             full_report = "\n\n---\n\n".join([f"📄 {name}\n{res}" for name, res in all_results])
-            success = send_email(email, "Shortlisted Candidates Report", full_report)
+            success = send_email("Shortlisted Candidates Report", result, email)
             if success:
                 st.success(f"📨 Report sent to {email}")
             else:
