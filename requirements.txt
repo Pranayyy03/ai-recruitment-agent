@@ -2,3 +2,4 @@ openai
 pyautogen
 pdfplumber
 python-dotenv
+google-generativeai
