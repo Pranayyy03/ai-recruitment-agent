@@ -3,6 +3,7 @@ from agents.hr_agent import GeminiHR
 from agents.utils.email_sender import send_email
 import fitz  # PyMuPDF for PDF
 import docx  # For DOCX files
+import time
 
 agent = GeminiHR()
 
@@ -31,24 +32,29 @@ if uploaded_files and jd_text:
     with st.spinner("Analyzing all resumes..."):
         all_results = []
         for file in uploaded_files:
-            resume_text = extract_text(file)
-            result = agent.generate_response(resume_text, jd_text)
-            all_results.append((file.name, result))
-    # import time
+            with st.spinner(f"⏳ Processing: {file.name}"):
+                start_time = time.time()
 
-    # for file in uploaded_files:
-    #    resume_text = extract_text(file)
+                resume_text = extract_text(file)
+                st.write(f"📄 Extracted text length: {len(resume_text)} characters")
 
-    # # (Optional) Truncate very large resume input
-    # if len(resume_text) > 8000:
-    #     resume_text = resume_text[:8000]
+                # Truncate long resume text to avoid Gemini crashes
+                if len(resume_text) > 8000:
+                    st.warning(f"⚠️ Truncating resume: {file.name} (too long)")
+                    resume_text = resume_text[:8000]
 
-    # result = agent.generate_response(resume_text, jd_text)
-    # all_results.append((file.name, result))
+                try:
+                    result = agent.generate_response(resume_text, jd_text)
+                except Exception as e:
+                    result = f"❌ Error while analyzing {file.name}: {e}"
+                    st.error(result)
+                
+                all_results.append((file.name, result))
 
-    # time.sleep(1.5)  # prevent hitting rate limit too quickly
+                elapsed = time.time() - start_time
+                st.success(f"✅ Done with {file.name} in {elapsed:.2f} seconds")
 
-
+                time.sleep(4)  # Avoid Gemini rate limit
 
     st.success("✅ All resumes analyzed successfully!")
 
