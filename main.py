@@ -61,7 +61,7 @@ def run_resume_analysis():
 
 if __name__ == "__main__":
     agent = GeminiHR()
-    print("\n🤖 Gemini HR Agent is Ready.")
+    print("\n🤖 HR Agent is Ready.")
     print("💬 Type 'chat' to talk, 'analyze resume' to run recruitment flow, or 'exit' to quit.\n")
 
     while True:

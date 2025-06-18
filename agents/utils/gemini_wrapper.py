@@ -11,6 +11,7 @@
 #     response = model.generate_content(prompt)
 #     return response.text
 
+
 import os
 import time
 import google.generativeai as genai

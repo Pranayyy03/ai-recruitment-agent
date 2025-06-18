@@ -5,28 +5,10 @@ from agents.question_generator import QuestionGenerator
 
 class GeminiHR:
     def __init__(self):
-        self.name = "Gemini_HR_Agent"
+        self.name = "HR_Agent"
         self.parser = ResumeParser()
         self.evaluator = MatchEvaluator()
         self.generator = QuestionGenerator()
-
-    # def generate_response(self, message):
-    #     print(f"[{self.name}] Processing...")
-
-    #     intent = ask_gemini(f"What is the intent of this message? Choose from: ['resume_upload', 'job_description', 'chat']\nMessage: {message}")
-        
-    #     if "resume_upload" in intent.lower():
-    #         parsed = self.parser.parse(message)
-    #         print("\n🔍 Parsed Resume:\n", parsed)
-    #         return parsed
-
-    #     elif "job_description" in intent.lower():
-    #         print("📝 Job description noted.")
-    #         return "Job description saved (future implementation: match resumes to this automatically)."
-
-    #     else:
-    #         return ask_gemini(message)
-        
 
 
 
