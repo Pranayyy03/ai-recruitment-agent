@@ -1,8 +1,8 @@
 import smtplib
 from email.message import EmailMessage
 
-EMAIL_USER = "sharmaranjana953@gmail.com"
-EMAIL_PASS = "vsvqcocncnqrddiv"
+EMAIL_USER = "astac6896@gmail.com"
+EMAIL_PASS = "ifrzrabcewuymalj"
 
 def send_email(subject, body, to_email):
     msg = EmailMessage()
