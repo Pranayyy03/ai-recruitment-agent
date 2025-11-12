@@ -1,7 +1,3 @@
-✅ README.md (Copy & Paste this into your root project folder)
-markdown
-Copy
-Edit
 # 🤖 AI Recruitment Agent (Gemini + Streamlit)
 
 This is an AI-powered recruitment agent that helps HR teams by automating resume parsing, evaluating candidates against a job description (JD), generating intelligent interview questions, and sending reports via email.
